@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person implements iPerson {
     private Object inHands = null;
     private FacialExpression currentEmotion = null;
@@ -45,5 +47,27 @@ public class Person implements iPerson {
 
     protected void setFacialExpression(FacialExpression expression) {
         currentEmotion = expression;
+    }
+
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(inHands, person.inHands) &&
+                currentEmotion == person.currentEmotion &&
+                Objects.equals(name, person.name);
+    }
+
+    public int hashCode() {
+        return Objects.hash(inHands, currentEmotion, name);
+    }
+
+    public String toString() {
+        return "Person{" +
+                "inHands=" + inHands +
+                ", currentEmotion=" + currentEmotion +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Tapis implements iBedCover{
 
     private final String color;
@@ -9,10 +11,6 @@ public class Tapis implements iBedCover{
         this.color = "Turquoise";
     }
 
-    public boolean equals(Object o){
-        return o instanceof Tapis;
-    }
-
     public String getColor() {
         return color;
     }
@@ -21,7 +19,20 @@ public class Tapis implements iBedCover{
         System.out.println(p.getName() + " выглядывает из-под покрывала.");
     }
 
-    public String toString(){
-        return color;
+    public String toString() {
+        return "Tapis{" +
+                "color='" + color + '\'' +
+                '}';
+    }
+
+    public int hashCode() {
+        return Objects.hash(color);
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tapis tapis = (Tapis) o;
+        return Objects.equals(color, tapis.color);
     }
 }

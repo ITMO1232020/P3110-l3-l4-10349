@@ -34,7 +34,6 @@ public class Main {
             carlson.setFacialExpression(FacialExpression.SATISFIED);
             System.out.println("Конец акта.");
 
-
         }else{
             System.out.print("закончилась, не сумев начаться...");
         }

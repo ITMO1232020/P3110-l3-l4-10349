@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Engine {
     private boolean started = false;
 
@@ -11,5 +13,23 @@ public class Engine {
 
     public void start() {
         started = true;
-        System.out.println("Двигатель запущен");}
+        System.out.println("Двигатель запущен");
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Engine engine = (Engine) o;
+        return started == engine.started;
+    }
+
+    public int hashCode() {
+        return Objects.hash(started);
+    }
+
+    public String toString() {
+        return "Engine{" +
+                "started=" + started +
+                '}';
+    }
 }

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Carlson extends Person implements iPerson{
     private Engine engine = null;
 
@@ -30,7 +32,7 @@ public class Carlson extends Person implements iPerson{
             System.out.println("Полетел!");
         }
         else{
-            System.out.print("Двигателя нету.");
+            System.out.println("Двигателя нету.");
         }
     }
 
@@ -40,5 +42,22 @@ public class Carlson extends Person implements iPerson{
 
     public void setFacialExpression(FacialExpression expression) {
         super.setFacialExpression(expression);
+    }
+
+    public String toString() {
+        return "Carlson{" +
+                "engine=" + engine +
+                '}';
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carlson carlson = (Carlson) o;
+        return Objects.equals(engine, carlson.engine);
+    }
+
+    public int hashCode() {
+        return Objects.hash(engine);
     }
 }
