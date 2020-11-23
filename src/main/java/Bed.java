@@ -5,12 +5,13 @@ public class Bed {
     public Bed(iBedCover bedCover, Person person) {
         this.cover = bedCover;
         this.person = person;
-
     }
+
     public Bed(Person person) {
         this.cover = new Blanket();
         this.person = person;
     }
+
     public Bed(iBedCover cover) {
         this.cover = cover;
         this.person = new Carlson();
