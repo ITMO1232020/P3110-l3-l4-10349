@@ -23,8 +23,9 @@
 hs_err_pid*
 
 /*.gradle
-/*.idea
+.idea
 /gradle
+/build
 
 *.xml
 *.bat
