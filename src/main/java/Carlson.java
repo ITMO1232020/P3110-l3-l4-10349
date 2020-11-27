@@ -20,19 +20,19 @@ public class Carlson extends Person implements iPerson{
         setFacialExpression(FacialExpression.SLY);
     }
 
-    public void fly(Engine engine){
+    public String fly(Engine engine){
         this.engine = engine;
-        engine.start();
-        System.out.println("Полетел!");
+        String a = engine.start();
+        return a + '\n' + "Полетел!";
     }
 
-    public void fly(){
+    public String fly(){
         if (this.engine != null){
             engine.start();
-            System.out.println("Полетел!");
+            return "Полетел!";
         }
         else{
-            System.out.println("Двигателя нету.");
+            return "Двигателя нету.";
         }
     }
 

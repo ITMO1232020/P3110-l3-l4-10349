@@ -11,9 +11,9 @@ public class Engine {
         e.started = true;
     }
 
-    public void start() {
+    public String start() {
         started = true;
-        System.out.println("Двигатель запущен");
+        return "Двигатель запущен";
     }
 
     public boolean equals(Object o) {

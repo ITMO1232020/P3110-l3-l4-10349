@@ -24,7 +24,7 @@ public class Main {
             System.out.println("В кровати лежит Карлсон.");
             Carlson carlson = (Carlson) resting;
             kid.handle(new Plate(Food.MEATBALL, 10 ));
-            carlson.fly();
+            System.out.println(carlson.fly());
             carlson.handle(kid.getHeldObject());
             if(carlson.getHeldObject() instanceof Plate){
                 carlson.handle(Food.MEATBALL);
