@@ -35,9 +35,9 @@ public class Person implements iPerson {
         return inHands;
     }
 
-    public void eatObjectInHands(){
-        System.out.println(this.getName() + " ест " + inHands.toString().split("@")[0]);
+    public String eatObjectInHands(){
         inHands = null;
+        return this.getName() + " ест " + inHands.toString().split("@")[0];
     }
 
     public String getName() {

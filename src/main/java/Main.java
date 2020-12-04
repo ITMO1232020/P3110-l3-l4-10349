@@ -30,7 +30,7 @@ public class Main {
                 carlson.handle(Food.MEATBALL);
             }
             carlson.land(new Lamp());
-            carlson.eatObjectInHands();
+            System.out.println(carlson.eatObjectInHands());
             carlson.setFacialExpression(FacialExpression.SATISFIED);
             System.out.println("Конец акта.");
 

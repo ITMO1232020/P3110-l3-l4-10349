@@ -2,8 +2,8 @@ import java.util.Objects;
 
 public class Blanket implements iBedCover {
     private final String color;
-    public void getALookBehindOf(Person p) {
-        System.out.println(p.getName() + " выглядывает из-под одеяла.");
+    public String getALookBehindOf(Person p) {
+        return p.getName() + " выглядывает из-под одеяла.";
     }
 
 

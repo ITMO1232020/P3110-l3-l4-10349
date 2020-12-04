@@ -15,8 +15,8 @@ public class Tapis implements iBedCover{
         return color;
     }
 
-    public void getALookBehindOf(Person p) {
-        System.out.println(p.getName() + " выглядывает из-под покрывала.");
+    public String getALookBehindOf(Person p) {
+        return p.getName() + " выглядывает из-под покрывала.";
     }
 
     public String toString() {

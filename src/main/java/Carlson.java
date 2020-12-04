@@ -36,8 +36,8 @@ public class Carlson extends Person implements iPerson{
         }
     }
 
-    public void land(Object o){
-        System.out.println("Карлсон сел на " + o.getClass().getName());
+    public String land(Object o){
+        return "Карлсон сел на " + o.getClass().getName();
     }
 
     public void setFacialExpression(FacialExpression expression) {
