@@ -4,8 +4,11 @@ public class DiningRoom extends Room implements iKitchen{
         return smell;
     }
 
-
     public void setSmell(String smell) {
         this.smell = smell;
+    }
+
+    public DiningRoom(Person... people){
+        super(people);
     }
 }

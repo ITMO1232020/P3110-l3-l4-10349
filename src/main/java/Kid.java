@@ -1,4 +1,7 @@
+import java.util.Random;
 public class Kid extends Person {
+
+    public final static String IMAGINARY_DIALOGUE = "Будьте добры, пойдемте ко мне. У меня в гостях Карлсон, который живет на крыше";
 
     public Kid(){
         super("Малыш");
@@ -25,7 +28,10 @@ public class Kid extends Person {
         return super.equals(o);
     }
 
-    public void hesitate(){
-
+    public boolean hesitationResult(){
+      return new Random().nextBoolean();
+    }
+    public void bringFood(Person p){
+        p.setFacialExpression(FacialExpression.SLY);
     }
 }

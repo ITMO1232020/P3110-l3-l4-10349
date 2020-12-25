@@ -1,6 +1,7 @@
 import java.util.Objects;
 
 public class Engine {
+    private static boolean hasButton = true;
     private boolean started = false;
 
     public boolean isStarted(Engine engine){
@@ -32,4 +33,17 @@ public class Engine {
                 "started=" + started +
                 '}';
     }
+
+    public static class StaticButtonChecker{
+        public boolean launchable(){
+            return hasButton;
+        }
+    }
+
+    public class NonStaticButtonChecker{
+        public boolean launchable(){
+            return hasButton;
+        }
+    }
+
 }

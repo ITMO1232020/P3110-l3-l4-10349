@@ -13,7 +13,6 @@ public class KitchenWare {
     public FoodItem getAllFood(){
         return getOneFood();
         //anon class w/ lambda
-
     }
 
     public KitchenWare(FoodItem food, int foodAmt){
