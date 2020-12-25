@@ -9,6 +9,10 @@ public class Carlson extends Person implements iPerson, iCriminal{
         super(name,expression);
         this.engine = new Engine();
     }
+
+    public String song(){
+        return "Ура, ура, ура! Прекрасная игра! Красив я и умен, И ловок, и силен! Люблю играть, люблю... жевать";
+    }
     public Carlson(String name){
         super(name); setFacialExpression(FacialExpression.SLY); this.engine = new Engine();
     }
