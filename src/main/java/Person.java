@@ -35,15 +35,16 @@ public class Person implements iPerson {
         return inHands;
     }
 
-    public String eatObjectInHands(){
+    public void eatObjectInHands() throws UnedibleObjectException{
+        if (!(inHands instanceof FoodItem)){
+            throw new UnedibleObjectException();
+        }
         inHands = null;
-        return this.getName() + " ест " + inHands.toString().split("@")[0];
     }
 
     public String getName() {
         return name;
     }
-
 
     protected void setFacialExpression(FacialExpression expression) {
         currentEmotion = expression;

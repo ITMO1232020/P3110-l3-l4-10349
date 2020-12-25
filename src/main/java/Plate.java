@@ -2,22 +2,26 @@ import java.util.Objects;
 
 public class Plate {
     private int foodAmt;
-    private final Food FOOD;
+    private final FoodItem FOOD;
 
-    public Food getOneFood(){
-        if(foodAmt == 0){return Food.AFRICA;}
+    public FoodItem getOneFood(){
+        if(foodAmt == 0){return new FoodItem(Food.AFRICA);}
         foodAmt--;
         return FOOD;
     }
 
-    public Plate(Food food, int foodAmt){
+    public Plate(FoodItem food, int foodAmt){
         this.foodAmt = foodAmt;
         this.FOOD = food;
 
     }
     public Plate(){
         foodAmt = 10;
-        FOOD = Food.MEATBALL;
+        FOOD = new FoodItem(Food.MEATBALL);
+    }
+
+    public boolean isAbleToStealFoodFrom() {
+        return foodAmt > 0 && FOOD != null;
     }
 
     public boolean equals(Object o) {

@@ -6,7 +6,7 @@ public class Blanket implements iBedCover {
         return p.getName() + " выглядывает из-под одеяла.";
     }
 
-
+    
     public Blanket(String color){
         this.color = color;
     }

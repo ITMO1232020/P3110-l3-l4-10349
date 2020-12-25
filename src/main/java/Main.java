@@ -8,8 +8,9 @@ public class Main {
      сделав небольшой круг под лампой, с довольным видом принялся жевать.
      */
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         iBedCover bedCover = context.getBean("bedCover", iBedCover.class);
         Person resting = context.getBean("resting", Person.class);
         Bed bed = new Bed(bedCover, resting);
@@ -23,14 +24,33 @@ public class Main {
             Kid kid = new Kid("Малыш");
             System.out.println("В кровати лежит Карлсон.");
             Carlson carlson = (Carlson) resting;
-            kid.handle(new Plate(Food.MEATBALL, 10 ));
+            kid.handle(new Plate(new FoodItem(Food.MEATBALL), 10 ));
             System.out.println(carlson.fly());
-            carlson.handle(kid.getHeldObject());
-            if(carlson.getHeldObject() instanceof Plate){
-                carlson.handle(Food.MEATBALL);
+
+            if(kid.getHeldObject() instanceof Plate && ((Plate) kid.getHeldObject()).isAbleToStealFoodFrom()){
+                //carlson.handle(((Plate) kid.getHeldObject()).getOneFood());
+                carlson.handle(new Kid());
             }
+
             carlson.land(new Lamp());
-            System.out.println(carlson.eatObjectInHands());
+
+            String a = carlson.getHeldObject().toString();
+
+            System.out.println("Щас Карлсон cъест " + a);
+
+            try {
+                carlson.eatObjectInHands();
+            } catch (UnedibleObjectException e) {
+                if(carlson.getHeldObject() instanceof Person){
+                    throw new CannibalismException("Eating people is super wrong", e);
+                }
+                e.printStackTrace();
+                System.out.println(carlson.getName() + " выплёвывает " + carlson.getHeldObject());
+                carlson.handle(null);
+                a = "Ничего";
+            }
+
+            System.out.println(a + " успешно употреблён, пошло пищеварение.");
             carlson.setFacialExpression(FacialExpression.SATISFIED);
             System.out.println("Конец акта.");
 

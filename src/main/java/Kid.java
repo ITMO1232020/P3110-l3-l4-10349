@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Kid extends Person {
 
     public Kid(){
@@ -15,7 +13,7 @@ public class Kid extends Person {
     }
 
     public String toString() {
-        return super.toString();
+        return getName();
     }
 
     public int hashCode() {

@@ -1,3 +1,3 @@
 public enum FacialExpression {
-    SLY,SATISFIED
+    SLY,SATISFIED,SURPRISED
 }
