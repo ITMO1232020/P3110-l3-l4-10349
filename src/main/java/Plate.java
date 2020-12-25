@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Plate {
+public class Plate extends KitchenWare {
     private int foodAmt;
     private final FoodItem FOOD;
 

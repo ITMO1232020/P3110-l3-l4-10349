@@ -24,4 +24,8 @@ public class Kid extends Person {
     public boolean equals(Object o) {
         return super.equals(o);
     }
+
+    public void hesitate(){
+
+    }
 }

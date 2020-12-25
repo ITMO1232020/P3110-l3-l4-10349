@@ -1,12 +1,7 @@
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
-    /*А затем из-под одеяла выглянуло лукавое лицо Карлсона.
-     Но тут он увидел в руках Малыша тарелочку и мигом нажал кнопку на животе.
-     Мотор загудел, Карлсон стремительно спикировал с кровати прямо к тарелке с тефтелями.
-     Он на лету схватил тефтельку, потом взвился к потолку и,
-     сделав небольшой круг под лампой, с довольным видом принялся жевать.
-     */
+
     public static void main(String[] args) {
 
 
@@ -20,23 +15,44 @@ public class Main {
             System.out.println("В кровати лежит малыш.");
 
         }else if(bed.getPerson().getName().equals("Карлсон")){
-
+            Mother mom = new Mother();
+            Father dad = new Father();
             Kid kid = new Kid("Малыш");
+            Kitchen kitchen = new Kitchen();
+            Bedroom bedroom = new Bedroom();
+            Pan pan = new Pan(new FoodItem(Food.MEATBALL),20);
+            kitchen.setSmell("жареные мясные тефтели");
+            System.out.println("скоро обед");
+
+
+            Carlson carlson = new Carlson();
+            carlson.getSmell(kitchen.getSmell());
+            kid.hesitate();
+            carlson.addCrime("Взорвал паровую машину");
+            carlson.addCrime("Прожёг книжную полку");
+
+            kid.bringFood(carlson);
+            System.out.println("carlsone be like: " + carlson.getExpression().name());
+            mom.handle(pan);
+            mom.fry(pan.getAllFood());
+            System.out.println("Мама жарит " + pan.getAllFood().toString());
+
+
             System.out.println("В кровати лежит Карлсон.");
-            Carlson carlson = (Carlson) resting;
+            carlson = (Carlson) resting;
             kid.handle(new Plate(new FoodItem(Food.MEATBALL), 10 ));
+
+
             System.out.println(carlson.fly());
-
             if(kid.getHeldObject() instanceof Plate && ((Plate) kid.getHeldObject()).isAbleToStealFoodFrom()){
-                //carlson.handle(((Plate) kid.getHeldObject()).getOneFood());
-                carlson.handle(new Kid());
+                carlson.handle(((Plate) kid.getHeldObject()).getOneFood());
             }
+            Lamp lamp = new Lamp();
+            bedroom.addFurniture(lamp);
+            carlson.land(lamp);
 
-            carlson.land(new Lamp());
-
+            System.out.println("Щас Карлсон cъест " + carlson.getHeldObject().toString());
             String a = carlson.getHeldObject().toString();
-
-            System.out.println("Щас Карлсон cъест " + a);
 
             try {
                 carlson.eatObjectInHands();
@@ -52,8 +68,14 @@ public class Main {
 
             System.out.println(a + " успешно употреблён, пошло пищеварение.");
             carlson.setFacialExpression(FacialExpression.SATISFIED);
-            System.out.println("Конец акта.");
+            System.out.println(carlson.fly());
 
+
+
+
+
+
+            System.out.println("Конец акта.");
         }else{
             System.out.print("закончилась, не сумев начаться...");
         }

@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
-public class Carlson extends Person implements iPerson{
-    private Engine engine = null;
+public class Carlson extends Person implements iPerson, iCriminal{
+    private Engine engine;
+    private final ArrayList<String> crimes = new ArrayList<>();
 
     public Carlson(String name, FacialExpression expression){
         super(name,expression);
@@ -34,6 +36,13 @@ public class Carlson extends Person implements iPerson{
         else{
             return "Двигателя нету.";
         }
+    }
+
+    public ArrayList<String> getCrimes() {
+        return crimes;
+    }
+    public void addCrime(String crime){
+        crimes.add(crime);
     }
 
     public String land(Object o){
